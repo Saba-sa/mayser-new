@@ -45,20 +45,14 @@
   --ease-out: cubic-bezier(0, 0, 0.58, 1);
   --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
 
-  --bg-gradient-start: #0a0f25;
-  --bg-gradient-end: #081b3a;
-  --text-primary: #ffffff;
-  --text-secondary: #e6ecf4;
-  --text-muted: #a7b2c6;
-  --accent-blue: #1890ff;
-  --accent-blue-hover: #40a9ff;
+  --text-primary: rgba(242, 243, 245, 0.95);
+  --text-secondary: #c5c9cc;
+  --text-muted: #7e848d;
+  --accent-blue: #3390ff;
+  --accent-blue-hover: #167dfaff;
   --border-color: #1f3a5f;
-  --error-color: #ff4d4f;
+  --error-color: #c06461;
   --success-color: #52c41a;
-
-  --radius-default: 24px;
-  --radius-small: 12px;
-  --radius-input: 8px;
 
   --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.2);
   --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -147,10 +141,11 @@ h1 {
   font-weight: 500;
   line-height: normal;
   letter-spacing: 25.92px;
+  color: var(--text-primary);
 }
 
 h2 {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   margin-bottom: 1rem;
   font-family: "SF Pro";
   font-size: 28px;
@@ -267,7 +262,7 @@ p,
 }
 
 .error-message {
-  color: #c06461;
+  color: var(--error-color);
   font-family: "SF Pro";
   font-size: 18px;
   font-style: normal;
@@ -310,7 +305,7 @@ p,
   align-items: center;
   gap: 30px;
   max-width: 1200px;
-  height: 680px;
+  height: auto;
   flex-shrink: 0;
   width: 100%;
   animation: fadeIn 0.6s ease-out 0.6s both;
@@ -381,7 +376,7 @@ p.dev {
   flex-shrink: 0;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(51, 144, 255, 0.9);
+  background: var(--accent-blue);
   box-shadow: 6px 6px 40px 0 rgba(10, 15, 37, 0.25);
   color: #fff;
   font-family: "SF Pro";
@@ -394,7 +389,8 @@ p.dev {
 }
 
 .cta-button:hover {
-  background: #40a9ff;
+  cursor: pointer;
+  background: var(--accent-blue-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(24, 144, 255, 0.4);
 }
@@ -544,7 +540,7 @@ p.dev {
   flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #3390ff;
+  background: var(--accent-blue);
   box-shadow: 6px 6px 40px 0 rgba(10, 15, 37, 0.25);
   color: #fff;
   font-family: "SF Pro";
@@ -655,11 +651,11 @@ p.dev {
   padding: 20px 0;
   position: absolute;
   bottom: 0;
-  opacity: 0;
-  animation: fadeIn var(--fade-slow) var(--ease-in) 0.2s forwards;
+  /* opacity: 0; */
+  /* animation: fadeIn var(--fade-slow) var(--ease-in) 0.2s forwards; */
 }
 .footer p {
-  color: #7e848d;
+  color: var(--text-muted);
   text-align: center;
   font-family: "SF Pro";
   font-size: 14px;
@@ -792,8 +788,7 @@ p.dev {
 }
 
 /* CTA Hover */
-.cta-button,
-.submit-btn {
+.cta-button {
   transition: background-color 140ms var(--ease-out),
     box-shadow 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
