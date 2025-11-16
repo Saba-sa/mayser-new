@@ -98,7 +98,7 @@ body::before {
   height: 400px;
   flex-shrink: 0;
   border-radius: 400px;
-  /* background: rgba(22, 51, 102, 0.4); */
+  background: rgba(22, 51, 102, 0.4);
   filter: blur(157.64942932128906px);
   position: absolute;
   top: 50%;
