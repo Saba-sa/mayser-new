@@ -906,6 +906,7 @@ p.dev {
   .block form {
     gap: 30px;
   }
+ 
   .form-group {
     gap: 10px;
   }
@@ -919,11 +920,11 @@ p.dev {
   .form-group input,
   .form-group select {
     padding: 16px 18px;
-    width: 95%;
+    width: 98%;
     margin: auto;
   }
   #requestForm .cta-button {
-    width: 95%;
+    width: 98%;
     font-size: 20px;
     letter-spacing: 11.78px;
     margin: auto;
@@ -975,6 +976,7 @@ p.dev {
     font-weight: 400;
     line-height: 50px;
     letter-spacing: 12px;
+    padding: 0 10px;
   }
   .subtitle {
     font-size: 18px;
@@ -1088,6 +1090,10 @@ p.dev {
     letter-spacing: 3px;
     font-weight: 300;
   }
+  .content-block.space-between {
+    padding: 80px 0;
+    height: auto;
+  }
   p.dev {
     font-size: 14px;
     letter-spacing: 3.2px;
@@ -1119,9 +1125,14 @@ p.dev {
   .block {
     gap: 20px;
   }
+  .parentContainer {
+    min-height: 70vh;
+  }
   .LuSculpture .cta-button {
     font-size: 18px;
     letter-spacing: 7px;
+    margin-top: 0;
+    margin-bottom: 3rem;
   }
   .block form {
     gap: 20px;
