@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Mayser Pharma AG - Private R&D Programme"
-    />
-    <meta property="og:image" content="/assets/og-image.png" />
-    <title>Mayser Pharma AG</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon-32.png"
-      sizes="32x32"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="parentContainer">
-      <div class="container hero-section">
-        <div class="hero-content">
-          <h1 class="fade-in">Mayser Pharma AG</h1>
-          <h2 class="subtitle fade-in-delayed">
-            Private R&D Programme — by invitation only
-          </h2>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mayser Pharma AG - Private R&D Programme" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <title>Mayser Pharma AG</title>
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="circlebg"></div>
+  <section class="parentContainer">
+    <div class="container">
+      <div>
+        <h1 class="fade-in">Mayser Pharma AG</h1>
+        <h2 class="subtitle fade-in-delayed">
+          Private R&D Programme — by invitation only
+        </h2>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <p>© 2026 Mayser Pharma AG — All rights reserved.</p>
-    </footer>
+  <footer class="footer">
+    <p>© 2026 Mayser Pharma AG — All rights reserved.</p>
+  </footer>
 
-    <script src="app.js"></script>
-    <script>
-      window.addEventListener("load", () => {
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const heroSection = document.querySelector(".container");
+        heroSection.style.opacity = "0";
+        heroSection.style.transition = "opacity 0.5s ease";
+
         setTimeout(() => {
-          const heroSection = document.querySelector(".hero-section");
-          heroSection.style.opacity = "0";
-          heroSection.style.transition = "opacity 0.5s ease";
+          heroSection.style.display = "none";
 
-          setTimeout(() => {
-            heroSection.style.display = "none";
-
-            const secondScreen = document.createElement("div");
-            secondScreen.className = "container hero-section second-screen";
-            secondScreen.innerHTML = `
-        <div class="hero-content">
+          const secondScreen = document.createElement("div");
+          secondScreen.className = "container second-screen";
+          secondScreen.innerHTML = `
+        <div>
           <h1 class="fade-in">Confidential Access</h1>
           <h2 class="subtitle fade-in-delayed">
             Continue to confidential access
@@ -57,22 +52,23 @@
           </div>
         </div>
       `;
-            let parentContainer =
-              document.getElementsByClassName("parentContainer")[0];
-            parentContainer.appendChild(secondScreen);
+          let parentContainer =
+            document.getElementsByClassName("parentContainer")[0];
+          parentContainer.appendChild(secondScreen);
 
-            setTimeout(() => {
-              secondScreen.style.opacity = "1";
-            }, 50);
+          setTimeout(() => {
+            secondScreen.style.opacity = "1";
+          }, 50);
 
-            document
-              .getElementById("continueBtn")
-              .addEventListener("click", () => {
-                window.location.href = "./pages/access.html";
-              });
-          }, 500);
-        }, 4000);
-      });
-    </script>
-  </body>
+          document
+            .getElementById("continueBtn")
+            .addEventListener("click", () => {
+              window.location.href = "./pages/access.html";
+            });
+        }, 500);
+      }, 4000);
+    });
+  </script>
+</body>
+
 </html>

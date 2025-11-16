@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
+    <div class="circlebg"></div>
+
     <section class="parentContainer">
-      <div class="container access-container">
+      <div class="container">
         <h1 class="fade-in">Confidential Access</h1>
-        <p class="subtitle fade-in-delayed">
+        <h2 class="subtitle fade-in-delayed">
           Enter your 6-digit access key to continue
-        </p>
+        </h2>
 
         <div class="access-form">
           <div class="code-inputs" id="codeInputs">
@@ -30,14 +32,13 @@
             <input type="text" class="code-digit" maxlength="1" />
             <input type="text" class="code-digit" maxlength="1" />
           </div>
-
-          <div class="error-message" id="errorMessage"></div>
-          <div
-            class="lockout-timer"
-            id="lockoutTimer"
-            style="display: none"
-          ></div>
         </div>
+        <div class="error-message" id="errorMessage"></div>
+        <div
+          class="lockout-timer"
+          id="lockoutTimer"
+          style="display: none"
+        ></div>
       </div>
     </section>
     <footer class="footer">
