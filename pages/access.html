@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Confidential Access - Mayser Pharma AG" />
+    <title>Confidential Access</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/favicon-32.png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <section class="parentContainer">
+      <div class="container access-container">
+        <h1 class="fade-in">Confidential Access</h1>
+        <p class="subtitle fade-in-delayed">
+          Enter your 6-digit access key to continue
+        </p>
+
+        <div class="access-form">
+          <div class="code-inputs" id="codeInputs">
+            <input type="text" class="code-digit" maxlength="1" />
+            <input type="text" class="code-digit" maxlength="1" />
+            <input type="text" class="code-digit" maxlength="1" />
+            <input type="text" class="code-digit" maxlength="1" />
+            <input type="text" class="code-digit" maxlength="1" />
+            <input type="text" class="code-digit" maxlength="1" />
+          </div>
+
+          <div class="error-message" id="errorMessage"></div>
+          <div
+            class="lockout-timer"
+            id="lockoutTimer"
+            style="display: none"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p>© 2026 Mayser Pharma AG — All rights reserved.</p>
+    </footer>
+
+    <script>
+      const accessCodes = {
+        123456: "granted.html",
+        LU1234: "granted.html",
+        MS9876: "granted.html",
+      };
+
+      const digitInputs = document.querySelectorAll(".code-digit");
+      let attemptCount = 0;
+      const maxAttempts = 2;
+      let lockoutTime = 0;
+      let lockoutInterval = null;
+
+      function checkLockout() {
+        const lockoutEnd = localStorage.getItem("lockoutEnd");
+        if (lockoutEnd) {
+          const now = Date.now();
+          const endTime = parseInt(lockoutEnd);
+
+          if (now < endTime) {
+            lockoutTime = Math.ceil((endTime - now) / 1000);
+            disableInputs();
+            startLockoutTimer();
+          } else {
+            localStorage.removeItem("lockoutEnd");
+          }
+        }
+      }
+
+      digitInputs.forEach((input, index) => {
+        input.addEventListener("input", (e) => {
+          if (!/^[A-Za-z0-9]*$/.test(e.target.value)) {
+            e.target.value = "";
+            return;
+          }
+
+          e.target.value = e.target.value.toUpperCase();
+
+          if (e.target.value && index < digitInputs.length - 1) {
+            digitInputs[index + 1].focus();
+          }
+
+          if (index === digitInputs.length - 1 && e.target.value) {
+            setTimeout(() => {
+              submitCode();
+            }, 100);
+          }
+        });
+
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Backspace" && !e.target.value && index > 0) {
+            digitInputs[index - 1].focus();
+          }
+        });
+      });
+
+      function submitCode() {
+        if (lockoutTime > 0) {
+          return;
+        }
+
+        const code = Array.from(digitInputs)
+          .map((input) => input.value)
+          .join("");
+
+        if (code.length !== 6) {
+          showError("Please enter all 6 characters");
+          return;
+        }
+
+        if (accessCodes[code]) {
+          window.location.href = accessCodes[code];
+        } else {
+          attemptCount++;
+
+          if (attemptCount >= maxAttempts) {
+            lockoutTime = 300;
+            const lockoutEnd = Date.now() + lockoutTime * 1000;
+            localStorage.setItem("lockoutEnd", lockoutEnd.toString());
+
+            showError("Too many attempts. Please retry in 05:00");
+            disableInputs();
+            startLockoutTimer();
+          } else {
+            showError("Invalid code. Please try again");
+          }
+
+          digitInputs.forEach((input) => (input.value = ""));
+          digitInputs[0].focus();
+        }
+      }
+
+      function disableInputs() {
+        digitInputs.forEach((input) => {
+          input.disabled = true;
+          input.style.opacity = "0.3";
+          input.style.cursor = "not-allowed";
+        });
+      }
+
+      function enableInputs() {
+        digitInputs.forEach((input) => {
+          input.disabled = false;
+          input.style.opacity = "1";
+          input.style.cursor = "text";
+          input.value = "";
+        });
+        attemptCount = 0;
+        localStorage.removeItem("lockoutEnd");
+        digitInputs[0].focus();
+      }
+
+      function startLockoutTimer() {
+        const errorEl = document.getElementById("errorMessage");
+        errorEl.style.display = "block";
+
+        lockoutInterval = setInterval(() => {
+          lockoutTime--;
+          errorEl.textContent = `Too many attempts. Please retry in ${formatTime(
+            lockoutTime
+          )}`;
+
+          if (lockoutTime <= 0) {
+            clearInterval(lockoutInterval);
+            errorEl.style.display = "none";
+            enableInputs();
+          }
+        }, 1000);
+      }
+
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(
+          2,
+          "0"
+        )}`;
+      }
+
+      function showError(message) {
+        const errorEl = document.getElementById("errorMessage");
+        errorEl.textContent = message;
+        errorEl.style.display = "block";
+      }
+
+      checkLockout();
+
+      if (lockoutTime === 0) {
+        digitInputs[0].focus();
+      }
+    </script>
+  </body>
+</html>

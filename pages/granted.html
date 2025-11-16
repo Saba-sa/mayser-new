@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Access Granted - Mayser Pharma AG" />
+    <title>Access Granted</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon-32.png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <section class="parentContainer">
+      <div class="container granted-container">
+        <h1 class="fade-in">Access Granted</h1>
+        <p class="subtitle fade-in-delayed">
+          Redirecting to your confidential section
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 Mayser Pharma AG — All rights reserved.</p>
+    </footer>
+
+    <script>
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const heroSection = document.querySelector(".granted-container");
+
+          heroSection.style.transition = "opacity 0.5s ease";
+          heroSection.style.opacity = "0";
+
+          setTimeout(() => {
+            heroSection.style.display = "none";
+
+            const secondScreen = document.createElement("div");
+            secondScreen.classList.add("container", "granted-container");
+
+            secondScreen.style.opacity = "0";
+
+            secondScreen.innerHTML = `
+          <h2 class="fade-in">Advanced Biopolymer Skin Technology.</h2>
+          <h3 class="subtitle fade-in-delayed">
+            Developed and protected by Mayser Pharma AG – Switzerland
+          </h3>
+        `;
+
+            const parentContainer =
+              document.getElementsByClassName("parentContainer")[0];
+            parentContainer.appendChild(secondScreen);
+
+            setTimeout(() => {
+              secondScreen.style.transition = "opacity 0.5s ease";
+              secondScreen.style.opacity = "1";
+            }, 50);
+
+            setTimeout(() => {
+              window.location.href = "lusculpture.html";
+            }, 2 * 1000);
+          }, 500);
+        }, 4000);
+      });
+    </script>
+  </body>
+</html>
