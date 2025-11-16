@@ -3,50 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="LuSculpture™ - The Light-Activated Perfect Second-Skin"
-    />
-    <title>LuSculpture™ - Light-Activated Perfect Second-Skin</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon-32.png"
-      sizes="32x32"
-    />
+    <title>LuSculpture™</title>
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <div class="circlebg"></div>
 
-    <section class="parentContainer">
+     <section class="parentContainer">
       <div class="block">
-        <h1>LuSculpture™</h1>
-        <h2 class="subtitle">The Light-Activated Perfect Second-Skin</h2>
-        <p class="description">
-          A world innovation. Intellectual Property by Mayser Pharma AG —
-          Switzerland.
+        <h1 class="transform-seq-h1">LuSculpture™</h1>
+        <h2 class="subtitle transform-seq-h2">The Light-Activated Perfect Second-Skin</h2>
+        <p class="description transform-seq-body">
+          A world innovation. Intellectual Property by Mayser Pharma AG — Switzerland.
         </p>
-      </div>
-    </section>
-    <section class="parentContainer">
-      <div class="block content-block">
-        <h1>A perfect second skin — activated by light</h1>
-        <p>
-          Based on a light-responsive polymer matrix, LuSculpture™ forms a thin,
-          invisible, elastic layer within seconds.
-        </p>
-        <p class="dev">Developed in Switzerland with medical precision.</p>
       </div>
     </section>
 
-    <section class="parentContainer LuSculpture">
+      <section class="parentContainer">
+      <div class="block content-block">
+        <h1 class="transform-seq-h1">A perfect second skin — activated by light</h1>
+        <p class="transform-seq-h2">
+          Based on a light-responsive polymer matrix, LuSculpture™ forms a thin,
+          invisible, elastic layer within seconds.
+        </p>
+        <p class="dev transform-seq-body">Developed in Switzerland with medical precision.</p>
+      </div>
+    </section>
+
+     <section class="parentContainer LuSculpture">
       <div class="block content-block space-between">
-        <h2 class="research-note">
+        <h2 class="research-note transform-seq-h1">
           Research visual under development — proprietary material image.
         </h2>
       </div>
-      <button class="cta-button" onclick="navigate()">
+      <button class="cta-button transform-seq-cta" onclick="crossfadeNavigate('form.html')">
         Request a Private Presentation
       </button>
     </section>
@@ -56,8 +47,9 @@
     </footer>
 
     <script>
-      function navigate() {
-        window.location.href = "form.html";
+      function crossfadeNavigate(url) {
+        document.body.classList.add('fade-out');
+        setTimeout(() => window.location.href = url, 120);
       }
     </script>
   </body>

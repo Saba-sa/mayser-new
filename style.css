@@ -37,6 +37,14 @@
 }
 
 :root {
+  /* Motion Variables */
+  --fade-fast: 120ms;
+  --fade-normal: 160ms;
+  --fade-slow: 180ms;
+  --ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+
   --bg-gradient-start: #0a0f25;
   --bg-gradient-end: #081b3a;
   --text-primary: #ffffff;
@@ -91,7 +99,7 @@ body::before {
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(108deg, #03062e 4.37%, #12122c 85.48%);
-  
+  animation: fadeIn var(--fade-slow) var(--ease-in) forwards;
 }
 .circlebg {
   width: 400px;
@@ -104,22 +112,21 @@ body::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-     z-index: 1; 
-   pointer-events: none;
-  }
-  .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    width: 100%;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-     position:relative;
-    z-index: 2;
-     height:100vh;
-    
+  z-index: 1;
+  pointer-events: none;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+  height: 100vh;
 }
 
 .block {
@@ -427,6 +434,8 @@ p.dev {
 #requestForm {
   margin: 50px 0;
   margin-bottom: 6rem;
+  opacity: 0;
+  animation: fadeIn var(--fade-slow) var(--ease-in) 0.08s forwards;
 }
 .block form {
   display: inline-flex;
@@ -441,6 +450,8 @@ p.dev {
   align-items: flex-start;
   gap: 12px;
   align-self: stretch;
+  opacity: 0;
+  transform: translateY(2px);
 }
 
 .form-group label {
@@ -481,6 +492,44 @@ p.dev {
   color: rgba(167, 178, 198, 0.4);
 }
 
+#requestForm .form-group:nth-child(1) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.12s forwards;
+}
+
+#requestForm .form-group:nth-child(2) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.16s forwards;
+}
+
+#requestForm .form-group:nth-child(3) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.2s forwards;
+}
+
+#requestForm .form-group:nth-child(4) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.24s forwards;
+}
+.code-inputs .code-digit {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.code-inputs .code-digit:nth-child(1) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.12s forwards;
+}
+.code-inputs .code-digit:nth-child(2) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.14s forwards;
+}
+.code-inputs .code-digit:nth-child(3) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.16s forwards;
+}
+.code-inputs .code-digit:nth-child(4) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.18s forwards;
+}
+.code-inputs .code-digit:nth-child(5) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.2s forwards;
+}
+.code-inputs .code-digit:nth-child(6) {
+  animation: rise var(--fade-slow) var(--ease-out) 0.22s forwards;
+}
 /*  
 .form-group select option {
   background: #0a0f25;
@@ -506,6 +555,9 @@ p.dev {
   margin-bottom: 0;
   padding: 0 25px;
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(2px);
+  animation: rise var(--fade-slow) var(--ease-out) 0.28s forwards;
 }
 /* ====================================
     SUCCESS MODAL STYLING
@@ -603,6 +655,8 @@ p.dev {
   padding: 20px 0;
   position: absolute;
   bottom: 0;
+  opacity: 0;
+  animation: fadeIn var(--fade-slow) var(--ease-in) 0.2s forwards;
 }
 .footer p {
   color: #7e848d;
@@ -618,6 +672,16 @@ p.dev {
     ANIMATIONS
     ==================================== */
 
+.fade-out {
+  opacity: 1;
+  animation: fadeOut var(--fade-fast) var(--ease-out) forwards;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn var(--fade-slow) var(--ease-in) forwards;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -627,10 +691,82 @@ p.dev {
   }
 }
 
-@keyframes fadeInUp {
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* ====================================
+   STAGGERED REVEAL SEQUENCE
+   ==================================== */
+
+.fade-seq {
+  opacity: 0;
+}
+
+.fade-seq.h1,
+.fade-seq-h1 {
+  animation: fadeIn var(--fade-slow) var(--ease-in-out) 0s forwards;
+}
+
+.fade-seq.h2,
+.fade-seq-h2 {
+  animation: fadeIn var(--fade-slow) var(--ease-in-out) 0.04s forwards;
+}
+
+.fade-seq.body,
+.fade-seq-body {
+  animation: fadeIn var(--fade-slow) var(--ease-in-out) 0.08s forwards;
+}
+
+.fade-seq.cta,
+.fade-seq-cta {
+  animation: fadeIn var(--fade-slow) var(--ease-in-out) 0.12s forwards;
+}
+
+.fade-seq.footer,
+.fade-seq-footer {
+  animation: fadeIn var(--fade-slow) var(--ease-in-out) 0.16s forwards;
+}
+
+.transform-seq {
+  transform: translateY(3px);
+  opacity: 0;
+  animation: rise var(--fade-slow) var(--ease-out) forwards;
+}
+
+.transform-seq-h1 {
+  transform: translateY(2px);
+  opacity: 0;
+  animation: rise var(--fade-slow) var(--ease-out) 0s forwards;
+}
+
+.transform-seq-h2 {
+  transform: translateY(2px);
+  opacity: 0;
+  animation: rise var(--fade-slow) var(--ease-out) 0.04s forwards;
+}
+
+.transform-seq-body {
+  transform: translateY(2px);
+  opacity: 0;
+  animation: rise var(--fade-slow) var(--ease-out) 0.08s forwards;
+}
+
+.transform-seq-cta {
+  transform: translateY(2px);
+  opacity: 0;
+  animation: rise var(--fade-slow) var(--ease-out) 0.12s forwards;
+}
+
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(3px);
   }
   to {
     opacity: 1;
@@ -638,31 +774,71 @@ p.dev {
   }
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
+/* ====================================
+   INTERACTION MOTIONS
+   ==================================== */
+
+/* Input Focus */
+.form-group input:focus,
+.form-group select:focus,
+.code-digit:focus {
+  outline: none;
+  background: rgba(10, 15, 37, 0.6);
+  border-color: #1890ff;
+  box-shadow: 0 0 6px rgba(24, 144, 255, 0.4);
+  transition: box-shadow var(--fade-fast) var(--ease-out),
+    border-color var(--fade-fast) var(--ease-out),
+    background var(--fade-fast) var(--ease-out);
 }
 
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
+/* CTA Hover */
+.cta-button,
+.submit-btn {
+  transition: background-color 140ms var(--ease-out),
+    box-shadow 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
-.fade-in-delayed {
-  animation: fadeIn 0.6s ease-out 0.3s both;
+.cta-button:hover,
+.submit-btn:hover {
+  background: #40a9ff;
+  box-shadow: 0 0 18px rgba(24, 144, 255, 0.35);
+  transform: translateY(-1px);
 }
 
-.fade-in-delayed-2 {
-  animation: fadeIn 0.6s ease-out 0.6s both;
+.cta-button:active,
+.submit-btn:active {
+  transform: translateY(0);
+  transition: transform 80ms var(--ease-in);
 }
 
-.fade-in-delayed-3 {
-  animation: fadeIn 0.6s ease-out 0.9s both;
+/* Error State Fade */
+.error-message {
+  opacity: 0;
+  color: #d2665a;
+  animation: fadeIn var(--fade-normal) var(--ease-out) forwards;
 }
+
+.error-message.show {
+  display: block;
+  animation: fadeIn var(--fade-normal) var(--ease-out) forwards;
+}
+
+/* Modal Transitions */
+.modal {
+  opacity: 0;
+  transition: opacity var(--fade-normal) var(--ease-in-out);
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: translateY(3px);
+  animation: rise var(--fade-slow) var(--ease-out) 0.08s forwards;
+}
+
 /* ====================================
     RESPONSIVE DESIGN
     ==================================== */
@@ -854,24 +1030,24 @@ p.dev {
     font-weight: 400;
     letter-spacing: 9px;
   }
-    .modal-content{
-      gap: 25px;
-    }
-   .modal-content img {
-  width: 100px;
-  height: 100px;
-}
-    .modal-content h2 {
-   font-size: 40px;
-   font-weight: 400;
-   letter-spacing: 13.8px;
-}
-.modal-content p {
-  font-size: 18px;
-   font-weight: 200;
-  line-height: 45px;
-  letter-spacing: 8px;
-}
+  .modal-content {
+    gap: 25px;
+  }
+  .modal-content img {
+    width: 100px;
+    height: 100px;
+  }
+  .modal-content h2 {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 13.8px;
+  }
+  .modal-content p {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 45px;
+    letter-spacing: 8px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -958,27 +1134,26 @@ p.dev {
   #requestForm .cta-button {
     font-size: 16px;
     letter-spacing: 6px;
-
-  } 
-  .modal-content{
-    padding:0 10px;
   }
-  .modal-content{
-      gap: 20px;
-    }
-    .modal-content img {
-  width: 90px;
-  height: 90px;
-}
-    .modal-content h2 {
-   font-size: 36px;
+  .modal-content {
+    padding: 0 10px;
+  }
+  .modal-content {
+    gap: 20px;
+  }
+  .modal-content img {
+    width: 90px;
+    height: 90px;
+  }
+  .modal-content h2 {
+    font-size: 36px;
     letter-spacing: 10px;
-}
-.modal-content p {
-  font-size: 18px;
-   line-height: 40px;
-  letter-spacing: 6px;
-}
+  }
+  .modal-content p {
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 6px;
+  }
 }
 
 @media (max-width: 639px) {
@@ -1057,23 +1232,24 @@ p.dev {
   #requestForm .cta-button {
     font-weight: 300;
     letter-spacing: 6px;
-  } .modal-content{
-      gap: 15px;
-    }
-     .modal-content img {
-  width: 80px;
-  height: 80px;
-}
-    .modal-content h2 {
-   font-size: 32px;
-   font-weight: 300;
-   letter-spacing: 6px;
-}
-.modal-content p {
-  font-size: 16px;
-  line-height: normal;
-  letter-spacing: 4px;
-}
+  }
+  .modal-content {
+    gap: 15px;
+  }
+  .modal-content img {
+    width: 80px;
+    height: 80px;
+  }
+  .modal-content h2 {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 6px;
+  }
+  .modal-content p {
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 4px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -1137,21 +1313,21 @@ p.dev {
   }
   #requestForm .cta-button {
     letter-spacing: 3px;
-  } .modal-content{
-      gap: 10px;
-    }
-    .modal-content img {
-  width: 70px;
-  height: 70px;
-}
-    .modal-content h2 {
-   font-size: 24px;
-   letter-spacing: 2px;
-}
-.modal-content p {
-
-  letter-spacing: 2px;
-}
+  }
+  .modal-content {
+    gap: 10px;
+  }
+  .modal-content img {
+    width: 70px;
+    height: 70px;
+  }
+  .modal-content h2 {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+  .modal-content p {
+    letter-spacing: 2px;
+  }
 }
 
 @media (max-width: 319px) {

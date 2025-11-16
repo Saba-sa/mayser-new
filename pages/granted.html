@@ -3,22 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Access Granted - Mayser Pharma AG" />
     <title>Access Granted</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon-32.png"
-      sizes="32x32"
-    />
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body>    <div class="circlebg"></div>
+  <body>
+    <div class="circlebg"></div>
 
     <section class="parentContainer">
-      <div class="container ">
-        <h1 class="fade-in">Access Granted</h1>
-        <p class="subtitle fade-in-delayed">
+      <div class="container">
+        <h1 class="transform-seq-h1">Access Granted</h1>
+        <p class="subtitle transform-seq-h2">
           Redirecting to your confidential section
         </p>
       </div>
@@ -28,46 +23,32 @@
       <p>&copy; 2026 Mayser Pharma AG — All rights reserved.</p>
     </footer>
 
-     <script>
+    <script>
       window.addEventListener("load", () => {
         setTimeout(() => {
           const heroSection = document.querySelector(".container");
-
-          heroSection.style.transition = "opacity 0.5s ease";
-          heroSection.style.opacity = "0";
+          heroSection.classList.add('fade-out');
 
           setTimeout(() => {
             heroSection.style.display = "none";
 
             const secondScreen = document.createElement("div");
-            secondScreen.classList.add("container");
-
-            secondScreen.style.opacity = "0";
-
+            secondScreen.className = "container";
             secondScreen.innerHTML = `
-          <h2 class="fade-in">Advanced Biopolymer Skin Technology.</h2>
-          <h3 class="subtitle fade-in-delayed">
-            Developed and protected by Mayser Pharma AG – Switzerland
-          </h3>
-        `;
+              <h2 class="transform-seq-h1">Advanced Biopolymer Skin Technology.</h2>
+              <h3 class="subtitle transform-seq-h2">
+                Developed and protected by Mayser Pharma AG – Switzerland
+              </h3>
+            `;
 
-            const parentContainer =
-              document.getElementsByClassName("parentContainer")[0];
-            parentContainer.appendChild(secondScreen);
-
-            setTimeout(() => {
-              secondScreen.style.transition = "opacity 0.5s ease";
-              secondScreen.style.opacity = "1";
-            }, 50);
+            document.querySelector(".parentContainer").appendChild(secondScreen);
 
             setTimeout(() => {
               window.location.href = "lusculpture.html";
-            }, 2 * 1000);
-          }, 500);
+            }, 2000);
+          }, 140);
         }, 4000);
       });
-    </script> 
-
-
+    </script>
   </body>
 </html>

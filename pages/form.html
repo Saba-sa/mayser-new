@@ -3,14 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="LuSculpture™ - Request Form" />
     <title>Request a Private Presentation</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon-32.png"
-      sizes="32x32"
-    />
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
@@ -37,12 +31,6 @@
           <div class="form-group">
             <label for="time">Preferred Time</label>
             <input type="text" id="time" name="time" required />
-            <!-- <select id="time" name="time" required>
-            <option value="">Select a time</option>
-            <option value="morning">Morning (9:00 - 12:00)</option>
-            <option value="afternoon">Afternoon (13:00 - 17:00)</option>
-            <option value="evening">Evening (17:00 - 20:00)</option>
-          </select> -->
           </div>
 
           <button type="submit" class="cta-button">
@@ -58,38 +46,45 @@
 
     <div id="successModal" class="modal">
       <div class="modal-content">
-        <div>
-          <img src="../assets/tick.svg" alt="tick" />
-        </div>
+        <div><img src="../assets/tick.svg" alt="tick" /></div>
         <h2>Request Confirmed</h2>
         <p>Your request has been received — thank you for your trust</p>
       </div>
     </div>
 
     <script>
+      function crossfadeNavigate(url) {
+        document.body.classList.add('fade-out');
+        setTimeout(() => window.location.href = url, 120);
+      }
+
       function closeSuccessModal() {
-        document.getElementById("successModal").style.display = "none";
-        document.body.style.overflow = "auto";
+        const modal = document.getElementById("successModal");
+        modal.classList.remove('show');
+        setTimeout(() => {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }, 160);
       }
 
       document.getElementById("requestForm").addEventListener("submit", (e) => {
         e.preventDefault();
-
-        document.getElementById("successModal").style.display = "flex";
+        
+        const modal = document.getElementById("successModal");
+        modal.style.display = "flex";
+        setTimeout(() => modal.classList.add('show'), 10);
         document.body.style.overflow = "hidden";
 
         setTimeout(() => {
           closeSuccessModal();
           document.getElementById("requestForm").reset();
-          window.location.href = "../index.html";
-        }, 2500*100);
+          setTimeout(() => crossfadeNavigate("../index.html"), 160);
+        }, 2500);
       });
 
       window.addEventListener("click", (e) => {
         const modal = document.getElementById("successModal");
-        if (e.target === modal) {
-          closeSuccessModal();
-        }
+        if (e.target === modal) closeSuccessModal();
       });
     </script>
   </body>
