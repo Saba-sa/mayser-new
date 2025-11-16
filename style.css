@@ -75,7 +75,6 @@ body::before {
     linear-gradient(180deg, #0a0e32 0%, #07092e 100%);
 }
 
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -684,13 +683,14 @@ p.dev {
 }
 .footer p {
   font-size: 13px;
+  color: var(--text-muted);
 }
 /* ====================================
    RESPONSIVE DESIGN
    ==================================== */
 
 @media (max-width: 768px) {
- .content-block {
+  .content-block {
     padding: 0 1rem;
     text-align: left;
   }
@@ -717,7 +717,7 @@ p.dev {
     letter-spacing: 0.2rem;
     width: 80%;
     padding: 5px;
-    font-size:16px;
+    font-size: 16px;
   }
   h1 {
     font-size: clamp(32px, 8vw, 48px);
@@ -755,7 +755,7 @@ p.dev {
 }
 
 @media (max-width: 480px) {
-    .container {
+  .container {
     padding: 1.5rem;
   }
   .hero-section,
@@ -804,8 +804,7 @@ p.dev {
     font-size: 18px;
   }
 
- 
-  #requestForm{
-    padding:10px 0;
+  #requestForm {
+    padding: 10px 0;
   }
 }
