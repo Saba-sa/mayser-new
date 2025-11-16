@@ -552,7 +552,7 @@ p.dev {
   gap: 30px;
 }
 
-.modal-content svg {
+.modal-content img {
   width: 120px;
   height: 120px;
   animation: checkmarkScale 0.5s ease-out;
@@ -854,6 +854,24 @@ p.dev {
     font-weight: 400;
     letter-spacing: 9px;
   }
+    .modal-content{
+      gap: 25px;
+    }
+   .modal-content img {
+  width: 100px;
+  height: 100px;
+}
+    .modal-content h2 {
+   font-size: 40px;
+   font-weight: 400;
+   letter-spacing: 13.8px;
+}
+.modal-content p {
+  font-size: 18px;
+   font-weight: 200;
+  line-height: 45px;
+  letter-spacing: 8px;
+}
 }
 
 @media (max-width: 767px) {
@@ -940,7 +958,27 @@ p.dev {
   #requestForm .cta-button {
     font-size: 16px;
     letter-spacing: 6px;
+
+  } 
+  .modal-content{
+    padding:0 10px;
   }
+  .modal-content{
+      gap: 20px;
+    }
+    .modal-content img {
+  width: 90px;
+  height: 90px;
+}
+    .modal-content h2 {
+   font-size: 36px;
+    letter-spacing: 10px;
+}
+.modal-content p {
+  font-size: 18px;
+   line-height: 40px;
+  letter-spacing: 6px;
+}
 }
 
 @media (max-width: 639px) {
@@ -1019,7 +1057,23 @@ p.dev {
   #requestForm .cta-button {
     font-weight: 300;
     letter-spacing: 6px;
-  }
+  } .modal-content{
+      gap: 15px;
+    }
+     .modal-content img {
+  width: 80px;
+  height: 80px;
+}
+    .modal-content h2 {
+   font-size: 32px;
+   font-weight: 300;
+   letter-spacing: 6px;
+}
+.modal-content p {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 4px;
+}
 }
 
 @media (max-width: 479px) {
@@ -1083,7 +1137,21 @@ p.dev {
   }
   #requestForm .cta-button {
     letter-spacing: 3px;
-  }
+  } .modal-content{
+      gap: 10px;
+    }
+    .modal-content img {
+  width: 70px;
+  height: 70px;
+}
+    .modal-content h2 {
+   font-size: 24px;
+   letter-spacing: 2px;
+}
+.modal-content p {
+
+  letter-spacing: 2px;
+}
 }
 
 @media (max-width: 319px) {
