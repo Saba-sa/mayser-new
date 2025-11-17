@@ -84,6 +84,8 @@ body::before {
   position: relative;
   background: linear-gradient(108deg, #03062e 4.37%, #12122c 85.48%);
   animation: fadeIn var(--fade-slow) var(--ease-in) forwards;
+  position: relative;
+  /* z-index: 0; */
 }
 .parentContainer::before {
   content: "";
@@ -102,13 +104,12 @@ body::before {
   flex-shrink: 0;
   border-radius: 400px;
   background: rgba(22, 51, 102, 1);
-
   filter: blur(157.64942932128906px);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
 }
 .container {
@@ -121,18 +122,19 @@ body::before {
   align-items: center;
   gap: 40px;
   height: 1024px;
+  z-index: 3;
 }
-.container,
 .block,
 .content-block {
   position: relative;
-  z-index: 3;
+  z-index: 4;
 }
 .cta-button,
 .arrow-button,
 .footer {
   position: relative;
   z-index: 3;
+  transform: translateZ(0);
 }
 
 .block {
