@@ -1311,6 +1311,9 @@ p.dev {
   .block {
     align-items: flex-start;
   }
+  .block.formcontainer {
+    align-items: center;
+  }
   .block h1,
   .block h2,
   .block p {
