@@ -28,7 +28,7 @@
 }
 
 :root {
-   --fade-fast: 120ms;
+  --fade-fast: 120ms;
   --fade-normal: 160ms;
   --fade-slow: 180ms;
   --ease-in: cubic-bezier(0.42, 0, 1, 1);
@@ -216,8 +216,8 @@ p,
   line-height: 70px;
   letter-spacing: 8.8px;
 }
-.spaceless{
-  gap:30px;
+.spaceless {
+  gap: 30px;
 }
 /* ====================================
     ACCESS PAGE
@@ -417,8 +417,8 @@ p.dev {
 
 .arrow-button {
   position: absolute;
-  bottom: 5%;     
-  right: 0%; 
+  bottom: 10%;
+  right: 0%;
   width: 60px;
   height: 60px;
   display: flex;
