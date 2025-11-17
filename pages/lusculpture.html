@@ -4,40 +4,177 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LuSculpture™</title>
-    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon-32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="../style.css" />
+    <style>
+      .parentContainer {
+        min-height: 100vh;
+        position: relative;
+        background: linear-gradient(108deg, #03062e 4.37%, #12122c 85.48%);
+      }
+
+      /* First Section */
+      .first-l-section {
+        background: linear-gradient(108deg, #03062e 4.37%, #12122c 85.48%);
+      }
+
+      .first-l-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./assets/bg.png") lightgray 0px -25.851px / 100% 131.371%
+          no-repeat;
+        mix-blend-mode: overlay;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Second Section */
+      .secound-section {
+        background: linear-gradient(108deg, #12122c 4.37%, #1a1a3e 85.48%);
+      }
+
+      .secound-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            283deg,
+            rgba(0, 0, 0, 0) 5.41%,
+            rgba(0, 0, 0, 0.2) 96.79%
+          ),
+          url("./assets/bg.png") lightgray 0px -22.595px / 100% 131.371% no-repeat;
+        mix-blend-mode: overlay;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Third Section */
+      .LuSculpture {
+        background: linear-gradient(108deg, #1a1a3e 4.37%, #03062e 85.48%);
+      }
+
+      .LuSculpture::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./assets/bg.png") lightgray 0px -26.151px / 100% 152.05%
+          no-repeat;
+        mix-blend-mode: overlay;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        max-width: 1200px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .third-container {
+        width: 100%;
+        max-width: 1200px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-button {
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer {
+        text-align: center;
+        color: var(--text-muted);
+        background: linear-gradient(
+          90deg,
+          rgba(12, 18, 40, 0.4) 8.64%,
+          rgba(24, 32, 59, 0.4) 89.07%
+        );
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.29);
+        width: 100%;
+        padding: 20px 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer p {
+        color: var(--text-muted);
+        font-size: clamp(12px, 1.5vw, 14px);
+        letter-spacing: 0.3em;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-out {
+        animation: fadeOut 0.3s ease-out forwards;
+      }
+    </style>
   </head>
   <body>
-    <div class="circlebg"></div>
-
-     <section class="parentContainer">
+    <section class="parentContainer first-l-section">
+      <div class="circlebg"></div>
       <div class="block">
         <h1 class="transform-seq-h1">LuSculpture™</h1>
-        <h2 class="transform-seq-h2">The Light-Activated Perfect Second-Skin</h2>
+        <h2 class="transform-seq-h2">
+          The Light-Activated Perfect Second-Skin
+        </h2>
         <p class="transform-seq-body">
-          A world innovation. Intellectual Property by Mayser Pharma AG — Switzerland.
+          A world innovation. Intellectual Property by Mayser Pharma AG —
+          Switzerland.
         </p>
       </div>
     </section>
 
-      <section class="parentContainer">
+    <section class="parentContainer secound-section">
+      <div class="circlebg"></div>
       <div class="block content-block">
-        <h1 class="transform-seq-h1">A perfect second skin — activated by light</h1>
+        <h1 class="transform-seq-h1">
+          A perfect second skin — activated by light
+        </h1>
         <p class="transform-seq-h2">
           Based on a light-responsive polymer matrix, LuSculpture™ forms a thin,
           invisible, elastic layer within seconds.
         </p>
-        <p class="dev transform-seq-body">Developed in Switzerland with medical precision.</p>
+        <p class="dev transform-seq-body">
+          Developed in Switzerland with medical precision.
+        </p>
       </div>
     </section>
 
-     <section class="parentContainer LuSculpture">
-      <div class="block content-block space-between">
-        <h2 class="research-note transform-seq-h1">
-          Research visual under development — proprietary material image.
-        </h2>
+    <section class="parentContainer LuSculpture">
+      <div class="circlebg"></div>
+      <div class="third-container">
+        <div class="block content-block space-between">
+          <h2 class="research-note transform-seq-h1">
+            Research visual under development — proprietary material image.
+          </h2>
+        </div>
       </div>
-      <button class="cta-button transform-seq-cta" onclick="crossfadeNavigate('form.html')">
+      <button
+        class="cta-button transform-seq-cta"
+        onclick="crossfadeNavigate('form.html')"
+      >
         Request a Private Presentation
       </button>
     </section>
@@ -47,9 +184,11 @@
     </footer>
 
     <script>
+      console.log("CSS loaded:", document.styleSheets.length > 0);
+
       function crossfadeNavigate(url) {
-        document.body.classList.add('fade-out');
-        setTimeout(() => window.location.href = url, 120);
+        document.body.classList.add("fade-out");
+        setTimeout(() => (window.location.href = url), 120);
       }
     </script>
   </body>
