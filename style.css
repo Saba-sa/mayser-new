@@ -109,7 +109,7 @@ body::before {
   gap: 40px;
   position: relative;
   z-index: 2;
-  height: 100vh;
+  height: 1024px;
 }
 
 .block {
