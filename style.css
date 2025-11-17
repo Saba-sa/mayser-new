@@ -1,29 +1,20 @@
-/* ==========================
-   REAL FIX — Rename family
-   ========================== */
-
-/* Light */
 @font-face {
   font-family: "SF Pro";
   src: url("./fonts/SF-Pro-Text-Light.otf") format("opentype");
   font-weight: 300;
 }
-
-/* Regular */
 @font-face {
   font-family: "SF Pro";
   src: url("./fonts/SF-Pro-Text-Regular.otf") format("opentype");
   font-weight: 400;
 }
 
-/* Medium */
 @font-face {
   font-family: "SF Pro";
   src: url("./fonts/SF-Pro-Text-Medium.otf") format("opentype");
   font-weight: 500;
 }
 
-/* Semibold */
 @font-face {
   font-family: "SF Pro";
   src: url("./fonts/SF-Pro-Text-Semibold.otf") format("opentype");
@@ -37,8 +28,7 @@
 }
 
 :root {
-  /* Motion Variables */
-  --fade-fast: 120ms;
+   --fade-fast: 120ms;
   --fade-normal: 160ms;
   --fade-slow: 180ms;
   --ease-in: cubic-bezier(0.42, 0, 1, 1);
@@ -71,7 +61,6 @@ html {
 body {
   font-family: "SF Pro";
   color: var(--text-primary);
-
   overflow-x: hidden;
   position: relative;
   background: #11112e;
@@ -226,6 +215,9 @@ p,
   font-weight: 500;
   line-height: 70px;
   letter-spacing: 8.8px;
+}
+.spaceless{
+  gap:30px;
 }
 /* ====================================
     ACCESS PAGE

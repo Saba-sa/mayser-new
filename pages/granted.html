@@ -26,7 +26,7 @@
       <p>&copy; 2026 Mayser Pharma AG — All rights reserved.</p>
     </footer>
 
-     <script>
+    <script>
       window.addEventListener("load", () => {
         setTimeout(() => {
           const heroSection = document.querySelector(".container");
@@ -36,7 +36,7 @@
             heroSection.style.display = "none";
 
             const secondScreen = document.createElement("div");
-            secondScreen.classList.add("container", "granted");
+            secondScreen.classList.add("container", "granted","spaceless");
 
             secondScreen.innerHTML = `
               <h2 class="transform-seq-h1">Advanced Biopolymer Skin Technology.</h2>
@@ -50,13 +50,11 @@
               .appendChild(secondScreen);
 
             setTimeout(() => {
-              window.location.href = "lusculpture.html";
+              <!-- window.location.href = "lusculpture.html"; -->
             }, 2000);
           }, 140);
         }, 4000);
       });
     </script>
-     
-  
-    </body>
+  </body>
 </html>
