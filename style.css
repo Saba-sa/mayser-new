@@ -437,7 +437,7 @@ p.dev {
 }
 
 .arrow-button:hover {
-  transform: translateX(500px);
+  transform: translateX(5px);
 }
 
 .arrow-button img {
