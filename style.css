@@ -39,7 +39,7 @@
   --text-secondary: #c5c9cc;
   --text-muted: #7e848d;
   --accent-blue: #3390ff;
-  --accent-blue-hover: #167dfaff;
+  --accent-blue-hover: #167dfa10;
   --border-color: #1f3a5f;
   --error-color: #c06461;
   --success-color: #52c41a;
@@ -402,9 +402,9 @@ p.dev {
 
 .cta-button:hover {
   cursor: pointer;
-  background: var(--accent-blue-hover);
+  /* background: #0f82df87; */
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(24, 144, 255, 0.4);
+  /* box-shadow: 0 8px 24px rgba(24, 144, 255, 0.4); */
 }
 
 /* ====================================
@@ -817,8 +817,8 @@ p.dev {
 #requestForm .cta-button:hover {
   cursor: pointer;
   transform: translateY(-2px);
-  background: #40a9ff;
-  box-shadow: 0 0 18px rgba(24, 144, 255, 0.35);
+  background: #338fffd2;
+  box-shadow: 0 0 18px rgba(24, 143, 255, 0.19);
   transform: translateY(-1px);
 }
 
