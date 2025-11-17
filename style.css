@@ -81,9 +81,21 @@ body::before {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  position: relative;
   background: linear-gradient(108deg, #03062e 4.37%, #12122c 85.48%);
   animation: fadeIn var(--fade-slow) var(--ease-in) forwards;
 }
+.parentContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/bg.png") lightgray 0px -25.851px / 100% 131.371% no-repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .circlebg {
   width: 400px;
   height: 400px;
@@ -108,9 +120,19 @@ body::before {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  position: relative;
-  z-index: 2;
   height: 1024px;
+}
+.container,
+.block,
+.content-block {
+  position: relative;
+  z-index: 3;
+}
+.cta-button,
+.arrow-button,
+.footer {
+  position: relative;
+  z-index: 3;
 }
 
 .block {
@@ -445,7 +467,7 @@ p.dev {
     Form and MODAL
     ==================================== */
 #requestForm {
-   margin-bottom: 6rem;
+  margin-bottom: 6rem;
   opacity: 0;
   animation: fadeIn var(--fade-slow) var(--ease-in) 0.08s forwards;
 }
@@ -453,9 +475,9 @@ p.dev {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  
-height: 1024px;
- }
+
+  height: 1024px;
+}
 .block form {
   display: inline-flex;
   flex-direction: column;
