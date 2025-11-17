@@ -16,10 +16,10 @@
   <body>
     <div class="circlebg"></div>
 
-    <section class="parentContainer ">
+    <section class="parentContainer">
       <div class="container">
         <h1 class="fade-in">Confidential Access</h1>
-        <h2 class="  fade-in-delayed">
+        <h2 class="fade-in-delayed">
           Enter your 6-digit access key to continue
         </h2>
 
@@ -119,13 +119,13 @@
           window.location.href = accessCodes[code];
         } else {
           attemptCount++;
-
           if (attemptCount >= maxAttempts) {
-            lockoutTime = 300;
+            lockoutTime = 5;
             const lockoutEnd = Date.now() + lockoutTime * 1000;
             localStorage.setItem("lockoutEnd", lockoutEnd.toString());
 
-            showError("Too many attempts. Please retry in 05:00");
+            showError("Too many attempts. Please retry in 00:05");
+
             disableInputs();
             startLockoutTimer();
           } else {
