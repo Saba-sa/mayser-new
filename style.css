@@ -437,8 +437,9 @@ p.dev {
 }
 
 .arrow-button:hover {
-  transform: translateX(5px);
+  transform: translateX(500px);
 }
+
 .arrow-button img {
   width: 100%;
 }
@@ -452,15 +453,13 @@ p.dev {
   opacity: 0;
   animation: fadeIn var(--fade-slow) var(--ease-in) 0.08s forwards;
 }
-.formcontainer{
+.formcontainer {
   display: inline-flex;
   flex-direction: column;
-  justify-content: flex-start; 
-  
-  height: auto; 
-  min-height: 100vh; 
+  justify-content: flex-start;
 
-
+  height: auto;
+  min-height: 100vh;
 }
 .block form {
   display: inline-flex;
@@ -815,14 +814,16 @@ p.dev {
     background var(--fade-fast) var(--ease-out);
 }
 
-/* CTA Hover */
 .cta-button {
   transition: background-color 140ms var(--ease-out),
     box-shadow 140ms var(--ease-out), transform 140ms var(--ease-out);
 }
 
 .cta-button:hover,
-.submit-btn:hover {
+.submit-btn:hover,
+#requestForm .cta-button:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
   background: #40a9ff;
   box-shadow: 0 0 18px rgba(24, 144, 255, 0.35);
   transform: translateY(-1px);
@@ -951,7 +952,7 @@ p.dev {
     width: 98%;
     margin: auto;
   }
-  
+
   #requestForm .cta-button {
     width: 98%;
     font-size: 20px;
@@ -1228,8 +1229,6 @@ p.dev {
 @media (max-width: 639px) {
   .arrow-button {
     right: 10%;
-    width: 30px;
-    height: 30px;
   }
   h1 {
     font-size: 32px;
@@ -1322,7 +1321,7 @@ p.dev {
 }
 
 @media (max-width: 479px) {
-   .container {
+  .container {
     padding: 0 10px;
     gap: 20px;
   }
