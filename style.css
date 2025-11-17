@@ -207,16 +207,25 @@ p,
 .description {
   text-align: center;
 }
-.granted p{
-color:   #C5C9CC;
-font-family: "SF Pro";
-font-size: 28px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 11.2px;
+.granted p {
+  color: #c5c9cc;
+  font-family: "SF Pro";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 11.2px;
 }
-
+.granted h3 {
+  color: var(--Color-H2, #c5c9cc);
+  text-align: center;
+  font-family: "SF Pro";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 70px;
+  letter-spacing: 8.8px;
+}
 /* ====================================
     ACCESS PAGE
     ==================================== */
@@ -443,6 +452,16 @@ p.dev {
   opacity: 0;
   animation: fadeIn var(--fade-slow) var(--ease-in) 0.08s forwards;
 }
+.formcontainer{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  
+  height: auto; 
+  min-height: 100vh; 
+
+
+}
 .block form {
   display: inline-flex;
   flex-direction: column;
@@ -558,7 +577,6 @@ p.dev {
   font-style: normal;
   font-weight: 500;
   letter-spacing: 12.78px;
-  margin-bottom: 0;
   padding: 0 25px;
   cursor: pointer;
   opacity: 0;
@@ -916,7 +934,7 @@ p.dev {
   .block form {
     gap: 30px;
   }
- 
+
   .form-group {
     gap: 10px;
   }
@@ -933,17 +951,24 @@ p.dev {
     width: 98%;
     margin: auto;
   }
+  
   #requestForm .cta-button {
     width: 98%;
     font-size: 20px;
     letter-spacing: 11.78px;
     margin: auto;
   }
-  .granted p{
- font-size: 24px;
- font-weight: 500;
- letter-spacing: 9.2px;
-}
+  .granted p {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 9.2px;
+  }
+  .granted h3 {
+    color: #c5c9cc;
+    font-size: 20px;
+    line-height: 50px;
+    letter-spacing: 6.8px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -1060,11 +1085,18 @@ p.dev {
     line-height: 45px;
     letter-spacing: 8px;
   }
-    .granted p{
- font-size: 22px;
- font-weight: 400;
- letter-spacing: 5.2px;
-}
+  .granted p {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 5.2px;
+  }
+  .granted h3 {
+    color: #c5c9cc;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 2px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1180,11 +1212,17 @@ p.dev {
     line-height: 40px;
     letter-spacing: 6px;
   }
-     .granted p{
- font-size: 20px;
- font-weight: normal;
- letter-spacing: 2px;
-}
+  .granted p {
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
+  .granted h3 {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
 }
 
 @media (max-width: 639px) {
@@ -1284,6 +1322,10 @@ p.dev {
 }
 
 @media (max-width: 479px) {
+   .container {
+    padding: 0 10px;
+    gap: 20px;
+  }
   h1 {
     font-size: 28px;
     letter-spacing: 6px;

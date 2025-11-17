@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Access Granted</title>
-    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon-32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
@@ -13,9 +18,7 @@
     <section class="parentContainer">
       <div class="container granted">
         <h1 class="transform-seq-h1">Access Granted</h1>
-        <p class="  transform-seq-h2">
-          Redirecting to your confidential section
-        </p>
+        <p class="transform-seq-h2">Redirecting to your confidential section</p>
       </div>
     </section>
 
@@ -27,7 +30,7 @@
       window.addEventListener("load", () => {
         setTimeout(() => {
           const heroSection = document.querySelector(".container");
-          heroSection.classList.add('fade-out');
+          heroSection.classList.add("fade-out");
 
           setTimeout(() => {
             heroSection.style.display = "none";
@@ -37,12 +40,14 @@
 
             secondScreen.innerHTML = `
               <h2 class="transform-seq-h1">Advanced Biopolymer Skin Technology.</h2>
-              <p class="  transform-seq-h2">
+              <h3 class=" transform-seq-h2">
                 Developed and protected by Mayser Pharma AG – Switzerland
-              </p>
+          </h3>
             `;
 
-            document.querySelector(".parentContainer").appendChild(secondScreen);
+            document
+              .querySelector(".parentContainer")
+              .appendChild(secondScreen);
 
             setTimeout(() => {
               window.location.href = "lusculpture.html";

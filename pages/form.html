@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Request a Private Presentation</title>
-    <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon-32.png"
+      sizes="32x32"
+    />
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <div class="circlebg"></div>
 
     <section class="parentContainer">
-      <div class="container block">
+      <div class="container block formcontainer">
         <form id="requestForm">
           <div class="form-group">
             <label for="name">Name</label>
@@ -54,13 +59,13 @@
 
     <script>
       function crossfadeNavigate(url) {
-        document.body.classList.add('fade-out');
-        setTimeout(() => window.location.href = url, 120);
+        document.body.classList.add("fade-out");
+        setTimeout(() => (window.location.href = url), 120);
       }
 
       function closeSuccessModal() {
         const modal = document.getElementById("successModal");
-        modal.classList.remove('show');
+        modal.classList.remove("show");
         setTimeout(() => {
           modal.style.display = "none";
           document.body.style.overflow = "auto";
@@ -69,10 +74,10 @@
 
       document.getElementById("requestForm").addEventListener("submit", (e) => {
         e.preventDefault();
-        
+
         const modal = document.getElementById("successModal");
         modal.style.display = "flex";
-        setTimeout(() => modal.classList.add('show'), 10);
+        setTimeout(() => modal.classList.add("show"), 10);
         document.body.style.overflow = "hidden";
 
         setTimeout(() => {
