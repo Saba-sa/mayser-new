@@ -207,6 +207,16 @@ p,
 .description {
   text-align: center;
 }
+.granted p{
+color:   #C5C9CC;
+font-family: "SF Pro";
+font-size: 28px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 11.2px;
+}
+
 /* ====================================
     ACCESS PAGE
     ==================================== */
@@ -929,6 +939,11 @@ p.dev {
     letter-spacing: 11.78px;
     margin: auto;
   }
+  .granted p{
+ font-size: 24px;
+ font-weight: 500;
+ letter-spacing: 9.2px;
+}
 }
 
 @media (max-width: 1023px) {
@@ -1045,6 +1060,11 @@ p.dev {
     line-height: 45px;
     letter-spacing: 8px;
   }
+    .granted p{
+ font-size: 22px;
+ font-weight: 400;
+ letter-spacing: 5.2px;
+}
 }
 
 @media (max-width: 767px) {
@@ -1160,6 +1180,11 @@ p.dev {
     line-height: 40px;
     letter-spacing: 6px;
   }
+     .granted p{
+ font-size: 20px;
+ font-weight: normal;
+ letter-spacing: 2px;
+}
 }
 
 @media (max-width: 639px) {

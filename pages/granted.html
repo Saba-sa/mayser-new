@@ -11,9 +11,9 @@
     <div class="circlebg"></div>
 
     <section class="parentContainer">
-      <div class="container">
+      <div class="container granted">
         <h1 class="transform-seq-h1">Access Granted</h1>
-        <p class="subtitle transform-seq-h2">
+        <p class="  transform-seq-h2">
           Redirecting to your confidential section
         </p>
       </div>
@@ -33,12 +33,13 @@
             heroSection.style.display = "none";
 
             const secondScreen = document.createElement("div");
-            secondScreen.className = "container";
+            secondScreen.classList.add("container", "granted");
+
             secondScreen.innerHTML = `
               <h2 class="transform-seq-h1">Advanced Biopolymer Skin Technology.</h2>
-              <h3 class="subtitle transform-seq-h2">
+              <p class="  transform-seq-h2">
                 Developed and protected by Mayser Pharma AG – Switzerland
-              </h3>
+              </p>
             `;
 
             document.querySelector(".parentContainer").appendChild(secondScreen);
